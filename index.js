@@ -7,10 +7,6 @@ const port = 3000;
 
 const forbidden = ["new"];
 
-const response = {
-  code: 200,
-};
-
 function openDB() {
   const data = readFileSync("db.json", "utf-8");
 
@@ -60,9 +56,7 @@ function userRoutes() {
       db.users[username].contacts.push(req.body.contact);
       writeFileSync("db.json", JSON.stringify(db));
 
-      res.sendStatus(200);
-
-      // res.send(JSON.stringify(db.users[username].contacts));
+      res.status(200).send(JSON.stringify(db.users[username].contacts));
     });
   });
 }
@@ -73,22 +67,22 @@ function groupRoutes() {
 
   dbKeys.forEach((guuid) => {
     app.get("/groups/" + guuid, (req, res) => {
-      res.send(JSON.stringify(db.groups[guuid]));
+      res.status(200).send(JSON.stringify(db.groups[guuid]));
     });
 
     app.post("/groups/" + guuid + "/new/message", (req, res) => {
       db.groups[guuid].messages.push(req.body);
       writeFileSync("db.json", JSON.stringify(db));
-      res.send(JSON.stringify(db.groups[guuid]));
+      res.status(200).send(JSON.stringify(db.groups[guuid]));
     });
 
     app.post("/groups/" + guuid + "/new/member", (req, res) => {
       if (!db.groups[guuid].members.includes(req.body.member)) {
         db.groups[guuid].members.push(req.body.member);
         writeFileSync("db.json", JSON.stringify(db));
-        res.send(JSON.stringify({ succeeded: true }));
+        res.status(200).send(JSON.stringify({ succeeded: true }));
       } else {
-        res.send(JSON.stringify({ succeeded: false }));
+        res.status(200).send(JSON.stringify({ succeeded: false }));
       }
     });
   });
@@ -99,7 +93,7 @@ app.use(express.json());
 app.post("/users/new", (req, res) => {
   console.log(req.body);
 
-  res.send(
+  res.status(200).send(
     JSON.stringify({
       succeeded: newUser(req.body.username, req.body.displayName),
     })
@@ -107,9 +101,11 @@ app.post("/users/new", (req, res) => {
 });
 
 app.post("/groups/new", (req, res) => {
-  res.send(
-    JSON.stringify({ guuid: newGroup(req.body.chatName, req.body.members) })
-  );
+  res
+    .status(200)
+    .send(
+      JSON.stringify({ guuid: newGroup(req.body.chatName, req.body.members) })
+    );
 });
 
 userRoutes();
