@@ -1,0 +1,62 @@
+{
+  "users": {
+    "jsmith": {
+      "displayName": "Jerry Smith",
+      "contacts": ["bsmith", "msmith"]
+    },
+    "bsmith": { "displayName": "Beth S  mith", "contacts": ["msmith"] },
+    "msmith": { "displayName": "Big Mort", "contacts": ["bsmith", "jsmith"] },
+    "ssmith": { "displayName": "Summer x", "contacts": ["msmith"] },
+    "rickalicious69420": { "displayName": "DIGITAL RICKKKKKKK", "contacts": [] }
+  },
+  "groups": {
+    "uniqueIDChat": {
+      "chatName": "Parents chat",
+      "members": ["bsmith", "jsmith", "rickalicious69420"],
+      "messages": [
+        {
+          "id": "jsd9fad97g24h",
+          "sender": "bsmith",
+          "message": "dammit jerry i told you to do homework with morty",
+          "timestamp": 1669307912266
+        }
+      ]
+    },
+    "aedbd236-f35f-46bb-be7c-9e587dee8853": {
+      "chatName": "kidz rul3",
+      "members": ["msmith", "ssmith"],
+      "messages": [
+        {
+          "id": "f78c92d9-d186-4c7f-ab72-0669ea02b712",
+          "sender": "msmith",
+          "message": "summer rick says to initite the deez protocol?",
+          "timestamp": 1669404668350
+        },
+        {
+          "id": "6b0dbf5c-e9df-4d38-95a4-dee3e02b6b67",
+          "sender": "ssmith",
+          "message": "DEEZ NUTS, HAH",
+          "timestamp": 1669404706649
+        },
+        {
+          "id": "894707af-68ab-4471-9f22-b063551c5e0c",
+          "sender": "ssmith",
+          "message": "DEEZ NUTS, HAH",
+          "timestamp": 1670245650893
+        },
+        {
+          "id": "ffe2d3be-42eb-4812-9094-aceca31d7dd6",
+          "sender": "msmith",
+          "message": "fuck you summer",
+          "timestamp": 1670245691361
+        },
+        {
+          "id": "0ab38d05-8e58-457f-8792-15d0deeef4a4",
+          "sender": "ssmith",
+          "message": "bite me morty",
+          "timestamp": 1671018780281
+        }
+      ]
+    }
+  }
+}
